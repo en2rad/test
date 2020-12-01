@@ -365,75 +365,128 @@ button {
   border: none;
 }
 
-.wrapper {
-  font-family: "Roboto", sans-serif;
-  font-size: 14px;
-  color: #fff;
+body {
+  background: #000;
 }
 
 .wrapper {
+  max-width: 1400px;
   min-height: 100vh;
+  margin: 0 auto;
+  font-size: 14px;
+  font-family: "Roboto", sans-serif;
   background: #000;
+}
+
+.btn-primary {
+  padding: 5px 10px;
+  color: #fff;
+  border: 1px solid;
+  border-radius: 3px;
+}
+.btn-primary:not(:last-child) {
+  margin-right: 10px;
 }
 
 .board-canvas {
   display: flex;
   align-items: flex-start;
 }
-@media (max-width: 576px) {
+@media (max-width: 768px) {
   .board-canvas {
-    flex-direction: row;
+    flex-wrap: wrap;
   }
 }
-.board-canvas__colum {
+
+.card--error {
+  background-color: #d93535;
+}
+
+.colum {
   flex-basis: 100%;
   background: #262626;
   border-radius: 10px;
   margin: 10px;
   padding: 10px;
 }
-.board-canvas__header {
+.colum__header {
   display: flex;
   justify-content: space-between;
 }
-.board-canvas__title {
+.colum__title {
   color: #fff;
   font-size: 33px;
   font-weight: 800;
 }
-.board-canvas__item {
-  padding: 10px;
-  margin: 10px 0;
-  border-radius: 10px;
-}
-.board-canvas__colum--todo .board-canvas__item {
-  background: #c340a1;
-}
-.board-canvas__colum--in-progress .board-canvas__item {
-  background: #6a6dcd;
-}
-.board-canvas__colum--done .board-canvas__item {
-  background: #00a88b;
-}
-.board-canvas__item-title {
-  font-size: 20px;
-  margin-bottom: 10px;
-}
-.board-canvas__item-text {
-  margin-bottom: 10px;
-}
-.board-canvas__btn {
+.colum__counter {
   color: #fff;
-  padding: 5px 10px;
-  border: 1px solid;
-  border-radius: 3px;
 }
-.board-canvas__footer {
+.colum__footer {
   display: flex;
   justify-content: flex-end;
 }
-@media (max-width: 768px) {
-  .board-canvas {
-    flex-wrap: wrap;
-  }
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  margin: 10px 0;
+  color: #fff;
+  border-radius: 10px;
+}
+.card__header {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid;
+}
+.card__body {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid;
+}
+.card__title {
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+.card__text {
+  line-height: 1.3;
+}
+.card__footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.card__header {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid;
+}
+.card__input {
+  flex: auto;
+}
+.card__textarea {
+  background: #262626;
+  color: #fff;
+  border-radius: 10px;
+  border: none;
+}
+.card--error {
+  background-color: #d93535 !important;
+}
+
+.colum--todo .card {
+  background: #c340a1;
+}
+
+.colum--in-progress .card {
+  background: #6a6dcd;
+}
+
+.colum--done .card {
+  background: #00a88b;
 }

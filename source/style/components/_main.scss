@@ -1,0 +1,14 @@
+.board-canvas {
+    display: flex;
+    align-items: flex-start;    
+
+    @include sm {   
+        flex-wrap: wrap;
+    }
+}
+
+
+
+.card--error{
+    background-color: $red_color;
+}
