@@ -74,7 +74,7 @@
 						</div>
 					</div>
 					
-					<h1 style="color: #fff">ПЕРЕНОС ТАСКА (In progress<)</h1>
+					<h1 style="color: #fff">ПЕРЕНОС ТАСКА (In progress)</h1>
 					<div style="color: #6a6dcd" class="chtoto card">
 						<button class="colum__footer-btn btn-primary">Create new</button>
 						<button class="colum__footer-btn btn-primary">Clean all</button>
@@ -82,9 +82,14 @@
 				</div>
 
 				<h1 style="color: #fff">УДАЛЕНИЕ ТАСКА (Delete)</h1>
-				<div class="chtoto card card--error">
-					<button class="colum__footer-btn btn-primary">Create new</button>
-					<button class="colum__footer-btn btn-primary">Clean all</button>
+				<div class="modal-message">
+					<p class="modal-message__text">
+						Delete this task?
+					</p>
+					<div class="modal-message__btn-wrap">
+						<button class="modal-message__btn btn-primary">No</button>
+						<button class="modal-message__btn btn-primary">Ok</button>
+					</div>
 				</div>
 
 				<div class="colum__footer">
@@ -110,9 +115,14 @@
 				</div>
 
 				<h1 style="color: #fff">ОЧИСТИТЬ ВСЮ КОЛОНКУ (Clean all)</h1>
-				<div class="chtoto card card--error">
-					<button class="colum__footer-btn btn-primary">Create new</button>
-					<button class="colum__footer-btn btn-primary">Clean all</button>
+				<div class="modal-message">
+					<p class="modal-message__text">
+						Clear column TO DO?
+					</p>
+					<div class="modal-message__btn-wrap">
+						<button class="modal-message__btn btn-primary">No</button>
+						<button class="modal-message__btn btn-primary">Ok</button>
+					</div>
 				</div>
 			</div>	
 			<!-- IN PROGRESS -->
@@ -283,5 +293,8 @@
 		</div>
 	</div>
 </body>
-
+<div class="colum__footer">
+	<button class="colum__footer-btn btn-primary">Create new</button>
+	<button class="colum__footer-btn btn-primary">Clean all</button>
+</div>
 </html>
