@@ -466,7 +466,14 @@ body {
   margin-bottom: 10px;
   border-bottom: 1px solid;
 }
+.card__label {
+  margin-bottom: 10px;
+}
 .card__input {
+  background: #262626;
+  color: #fff;
+  border-radius: 10px;
+  border: none;
   flex: auto;
 }
 .card__textarea {

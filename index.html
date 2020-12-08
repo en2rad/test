@@ -1,296 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Kanban-board7</title>
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet"> 
-	<link rel="stylesheet" href="./source/style/main.css" /> </head>
-
+	<link rel="stylesheet" href="./source/style/main.css" /> 
+	<script src="./js/main.js" defer type="module"></script>
+</head>
 <body>
 	<div class="wrapper">
-
-		<nav class="nav"> 
-			Navigation
-    	</nav>
-
-
 		<div class="board-canvas">
 			<!-- TODO -->
-			<div class="board-canvas__colum colum colum--todo">
+			<div id="col" class="board-canvas__colum colum colum--todo">
 				<div class="colum__header">
 					<h2 class="colum__title">To do</h2>
 					<div class="colum__counter">10</div>	
 				</div>
+
 				<div class="colum__body">
+
+					<h1 style="color: #fff">ФОРМА ДОБАВЛЕНИЕ НОВОГО ТАСКА (Create new)</h1>
 					<div class="colum__item card">
-						<div class="card__header">
-							<h4 class="card__user-name">Aleksy Ramanovich</h4>
-							<span class="card__create-date">20.20.2020</span>
-						</div>
-						<div class="card__body">
-							<h4 class="card__title">Lorem ipsum dolor sit ame!</h4>
-							<p class="card__text">
-								Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, quo?
-								Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi repudiandae 
-								voluptates totam ipsum deserunt perferendis facilis, obcaecati itaque libero 
-								accusantium saepe earum! Praesentium deserunt quibusdam voluptas fugiat 
-								dicta nemo placeat. Eveniet non harum repellendus nostrum. Dicta officia iste non consequuntur!
-							</p>
-						</div>
+						<form task-form id="create-card" class="card__form" action="">
+							<div class="card__header">
+								<input task-user-name class="card__input" type="text">
+							</div>
+							<div class="card__body">
+								<label class="card__label">Task title</label>
+								<input task-title class="card__input" type="text">
 
-						<div class="card__footer">
-							<button  class="card__btn btn-primary">Delete</button>
-							<button class="card__btn btn-primary">Comment</button>
-							<button class="card__btn btn-primary">In progress</button>
-						</div>
+								<label class="card__label">Task</label>
+								<textarea task-text class="card__textarea" id="cf-message" type="text"></textarea>
+							</div>
+							<div class="card__footer">
+								<button id="createCard" class="card__btn btn-primary">Create</button>
+								<button class="card__btn btn-primary">Delete</button>
+							</div>
+						</form>
 					</div>
 
-					<h1 style="color: #fff">ДОБАВЛЕНИЕ КОММЕНТОВ (Comment)</h1>
-					<div class="colum__item card">
-						<div class="card__header">
-							<h4 class="card__user-name">Aleksy Ramanovich</h4>
-							<span class="card__create-date">20.20.2020</span>
-						</div>
-						<div class="card__body">
-							<h4 class="card__title">Lorem ipsum dolor sit ame!</h4>
-							<p class="card__text">
-								Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, quo?
-								Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi repudiandae 
-								voluptates totam ipsum deserunt perferendis facilis, obcaecati itaque libero 
-								accusantium saepe earum! Praesentium deserunt quibusdam voluptas fugiat 
-								dicta nemo placeat. Eveniet non harum repellendus nostrum. Dicta officia iste non consequuntur!
-							</p>
-						</div>
-						<div class="card__comment-wrap">
-							<input type="text" class="card__comment">	
-						</div>
-						<div class="card__footer">
-							<button  class="card__btn btn-primary">Delete</button>
-							<button class="card__btn btn-primary">Comment</button>
-							<button class="card__btn btn-primary">In progress</button>
-						</div>
-					</div>
-					
-					<h1 style="color: #fff">ПЕРЕНОС ТАСКА (In progress)</h1>
-					<div style="color: #6a6dcd" class="chtoto card">
-						<button class="colum__footer-btn btn-primary">Create new</button>
-						<button class="colum__footer-btn btn-primary">Clean all</button>
-					</div>
-				</div>
 
-				<h1 style="color: #fff">УДАЛЕНИЕ ТАСКА (Delete)</h1>
-				<div class="modal-message">
-					<p class="modal-message__text">
-						Delete this task?
-					</p>
-					<div class="modal-message__btn-wrap">
-						<button class="modal-message__btn btn-primary">No</button>
-						<button class="modal-message__btn btn-primary">Ok</button>
+
+					<h1 style="color: #fff">ОЧИСТИТЬ ВСЮ КОЛОНКУ (Clean all)</h1>
+					<div class="modal-message">
+						<p class="modal-message__text">
+							Clear column TO DO?
+						</p>
+						<div class="modal-message__btn-wrap">
+							<button class="modal-message__btn btn-primary">No</button>
+							<button class="modal-message__btn btn-primary">Ok</button>
+						</div>
 					</div>
 				</div>
 
 				<div class="colum__footer">
-					<button class="colum__footer-btn btn-primary">Create new</button>
+					<button id="createForm" class="colum__footer-btn btn-primary">Create new</button>
 					<button class="colum__footer-btn btn-primary">Clean all</button>
-				</div>
-				
-				<h1 style="color: #fff">ФОРМА ДОБАВЛЕНИЕ НОВОГО ТАСКА (Create new)</h1>
-				<div class="colum__item card">
-					<form class="card__form" action="">
-						<div class="card__header">
-							user list
-						</div>
-						<div class="card__body">
-							<label class="card__label" for="cf-message">Task</label>
-							<textarea class="card__textarea" id="cf-message" type="text"></textarea>
-						</div>
-						<div class="card__footer">
-							<button class="card__btn btn-primary">Create</button>
-							<button class="card__btn btn-primary">Delete</button>
-						</div>
-					</form>
-				</div>
-
-				<h1 style="color: #fff">ОЧИСТИТЬ ВСЮ КОЛОНКУ (Clean all)</h1>
-				<div class="modal-message">
-					<p class="modal-message__text">
-						Clear column TO DO?
-					</p>
-					<div class="modal-message__btn-wrap">
-						<button class="modal-message__btn btn-primary">No</button>
-						<button class="modal-message__btn btn-primary">Ok</button>
-					</div>
 				</div>
 			</div>	
 			<!-- IN PROGRESS -->
-			<div class="board-canvas__colum colum colum--in-progress">
-				<div class="colum__header">
-					<h2 class="colum__title">In progress</h2>
-					<div class="colum__counter">10</div>	
-				</div>
-				<div class="colum__body">
-					<div class="colum__item card">
-						<div class="card__header">
-							<h4 class="card__user-name">Aleksy Ramanovich</h4>
-							<span class="card__create-date">20.20.2020</span>
-						</div>
-						<div class="card__body">
-							<h4 class="card__title">Lorem ipsum dolor sit ame!</h4>
-							<p class="card__text">
-								Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, quo?
-								Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi repudiandae 
-								voluptates totam ipsum deserunt perferendis facilis, obcaecati itaque libero 
-								accusantium saepe earum! Praesentium deserunt quibusdam voluptas fugiat 
-								dicta nemo placeat. Eveniet non harum repellendus nostrum. Dicta officia iste non consequuntur!
-							</p>
-						</div>
-
-						<div class="card__footer">
-							<button  class="card__btn btn-primary">Delete</button>
-							<button class="card__btn btn-primary">Comment</button>
-							<button class="card__btn btn-primary">In progress</button>
-						</div>
-					</div>
-					
-					<div class="colum__item card">
-						<div class="card__header">
-							<h4 class="card__user-name">Aleksy Ramanovich</h4>
-							<span class="card__create-date">20.20.2020</span>
-						</div>
-						<div class="card__body">
-							<h4 class="card__title">Lorem ipsum dolor sit ame!</h4>
-							<p class="card__text">
-								Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, quo?
-								Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi repudiandae 
-								voluptates totam ipsum deserunt perferendis facilis, obcaecati itaque libero 
-								accusantium saepe earum! Praesentium deserunt quibusdam voluptas fugiat 
-								dicta nemo placeat. Eveniet non harum repellendus nostrum. Dicta officia iste non consequuntur!
-							</p>
-						</div>
-
-						<div class="card__footer">
-							<button  class="card__btn btn-primary">Delete</button>
-							<button class="card__btn btn-primary">Comment</button>
-							<button class="card__btn btn-primary">In progress</button>
-						</div>
-					</div>
-
-					<div class="colum__item card">
-						<div class="card__header">
-							<h4 class="card__user-name">Aleksy Ramanovich</h4>
-							<span class="card__create-date">20.20.2020</span>
-						</div>
-						<div class="card__body">
-							<h4 class="card__title">Lorem ipsum dolor sit ame!</h4>
-							<p class="card__text">
-								Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, quo?
-								Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi repudiandae 
-								voluptates totam ipsum deserunt perferendis facilis, obcaecati itaque libero 
-								accusantium saepe earum! Praesentium deserunt quibusdam voluptas fugiat 
-								dicta nemo placeat. Eveniet non harum repellendus nostrum. Dicta officia iste non consequuntur!
-							</p>
-						</div>
-
-						<div class="card__footer">
-							<button  class="card__btn btn-primary">Delete</button>
-							<button class="card__btn btn-primary">Comment</button>
-							<button class="card__btn btn-primary">In progress</button>
-						</div>
-					</div>
-				</div>
-
-				<div class="colum__footer">
-					<button class="colum__footer-btn btn-primary">Create new</button>
-					<button class="colum__footer-btn btn-primary">Clean all</button>
-				</div>
-			</div>
-			<!-- DONE -->
-			
-			<div class="board-canvas__colum colum colum--done">
-				<div class="colum__header">
-					<h2 class="colum__title">In progress</h2>
-					<div class="colum__counter">10</div>	
-				</div>
-				<div class="colum__body">
-					<div class="colum__item card">
-						<div class="card__header">
-							<h4 class="card__user-name">Aleksy Ramanovich</h4>
-							<span class="card__create-date">20.20.2020</span>
-						</div>
-						<div class="card__body">
-							<h4 class="card__title">Lorem ipsum dolor sit ame!</h4>
-							<p class="card__text">
-								Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, quo?
-								Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi repudiandae 
-								voluptates totam ipsum deserunt perferendis facilis, obcaecati itaque libero 
-								accusantium saepe earum! Praesentium deserunt quibusdam voluptas fugiat 
-								dicta nemo placeat. Eveniet non harum repellendus nostrum. Dicta officia iste non consequuntur!
-							</p>
-						</div>
-
-						<div class="card__footer">
-							<button  class="card__btn btn-primary">Delete</button>
-							<button class="card__btn btn-primary">Comment</button>
-							<button class="card__btn btn-primary">In progress</button>
-						</div>
-					</div>
-					
-					<div class="colum__item card">
-						<div class="card__header">
-							<h4 class="card__user-name">Aleksy Ramanovich</h4>
-							<span class="card__create-date">20.20.2020</span>
-						</div>
-						<div class="card__body">
-							<h4 class="card__title">Lorem ipsum dolor sit ame!</h4>
-							<p class="card__text">
-								Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, quo?
-								Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi repudiandae 
-								voluptates totam ipsum deserunt perferendis facilis, obcaecati itaque libero 
-								accusantium saepe earum! Praesentium deserunt quibusdam voluptas fugiat 
-								dicta nemo placeat. Eveniet non harum repellendus nostrum. Dicta officia iste non consequuntur!
-							</p>
-						</div>
-
-						<div class="card__footer">
-							<button  class="card__btn btn-primary">Delete</button>
-							<button class="card__btn btn-primary">Comment</button>
-							<button class="card__btn btn-primary">In progress</button>
-						</div>
-					</div>
-
-					<div class="colum__item card">
-						<div class="card__header">
-							<h4 class="card__user-name">Aleksy Ramanovich</h4>
-							<span class="card__create-date">20.20.2020</span>
-						</div>
-						<div class="card__body">
-							<h4 class="card__title">Lorem ipsum dolor sit ame!</h4>
-							<p class="card__text">
-								Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, quo?
-								Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi repudiandae 
-								voluptates totam ipsum deserunt perferendis facilis, obcaecati itaque libero 
-								accusantium saepe earum! Praesentium deserunt quibusdam voluptas fugiat 
-								dicta nemo placeat. Eveniet non harum repellendus nostrum. Dicta officia iste non consequuntur!
-							</p>
-						</div>
-
-						<div class="card__footer">
-							<button  class="card__btn btn-primary">Delete</button>
-							<button class="card__btn btn-primary">Comment</button>
-							<button class="card__btn btn-primary">In progress</button>
-						</div>
-					</div>
-				</div>
-
-				<div class="colum__footer">
-					<button class="colum__footer-btn btn-primary">Create new</button>
-					<button class="colum__footer-btn btn-primary">Clean all</button>
-				</div>
-			</div>
-		</div>
+		</div>	
 	</div>
 </body>
 </html>

@@ -1,0 +1,25 @@
+{
+  "name": "7-days-to-deadline",
+  "version": "1.0.0",
+  "description": "1. Группа делиться на две команды\r 2. Преподаватель выбирает двух капитанов команд\r 3. Капитаны команд набирают себе участников с помощью драфта\r 4. В аккаунте преподавателя создаётся два репозитория для проектов(названия команд/репозиториев придумывает команда)\r 5. Обязанности Team Lead:\r Проектирование архитектуры проекта\r Распределение задач в коллективе и слежение за их выполнением\r Merge PR and code review\r Помощь в написании кода и решении проблем всем участникам команды\r Team Lead не имеет права выполнять таски участников команды(только помогать)\r Только Team Lead можешь задавать вопросы и писать Product Owner\r Преподаватель не отвечает на вопросы почему эта кнопка не работает и тд и тп. \r Преподаватель является Product Owner и имеет право в любое время вносить абсолютно любые правки в проект, даже которые вследствие могут привести к написанию проекта с нуля\r Team Lead имеет права назначать и проводить совместные Daily \r 6. Дизайн можете выбирать сами. Вдохновение можно черпнуть с Figma community beta\r 7. Финальный проект даётся на 12 занятии. Срок выполнения 12-18 занятие. Итого три недели.\r 8. Финальный проект канбан доска на подобии Trello и его аналогов.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "parcel ./src/index.html",
+    "build": "parcel build ./src/index.html --no-source-maps"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Oleg-Kolosov/7-days-to-deadline.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Oleg-Kolosov/7-days-to-deadline/issues"
+  },
+  "homepage": "https://github.com/Oleg-Kolosov/7-days-to-deadline#readme",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4"
+  }
+}
